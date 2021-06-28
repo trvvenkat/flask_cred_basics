@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block head %}
+<h1> Your Details Here!</h1>
+{% endblock %}
+
+
+{% block body %}
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% for cat, msg in messages %}
+    <div class="{{ cat }}">{{ msg }}</div>
+{% endfor %}
+{% endwith %}
+<br>
+<br>
+<form action="/edituser/{{userdetails.id}}" method="POST">
+    <label for="firstname">First Name</label><br>
+    <input type="text" name = "firstname" id = "firstname" value="{{ userdetails.firstname }}"><br><br>
+    <label for="lastname">Last Name</label><br>
+    <input type="text" name = "lastname" id = "lastname" value="{{ userdetails.lastname }}"><br><br>
+    <label for="email">e-Mail</label><br>
+    <input type="text" name = "email" id = "email" value="{{ userdetails.email }}"><br><br>
+    <label for="phone">Phone Number</label><br>
+    <input type="tel" name = "phone" id = "phone" value="{{ userdetails.phone }}"><br><br>
+    <input type="submit" value="Update User Details">
+</form>
+
+
+
+{% endblock %}

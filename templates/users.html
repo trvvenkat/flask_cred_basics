@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block head %}
+<h1>USERS!</h1>
+{% endblock %}
+
+{% block body %}
+<br><br>
+<table class="center">
+    <tr>
+        <th>Name</th>
+        <th>e-Mail</th>
+        <th>Phone</th>
+    </tr>
+    {% for user in users %}
+        <tr>
+            <td>{{ user.firstname }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.phone }}</td>
+        </tr>
+    {% endfor %}
+</table>
+<br><br>
+<a href="/logout">Logout</a> <br>
+<a href="/profile">Profile</a>
+
+{% endblock %}

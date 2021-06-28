@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block head %}
+<h1>!!!DELETE ACCOUNT!!!</h1>
+{% endblock %}
+
+
+{% block body %}
+<br><br><br>
+Are You Sure? You Want To Delete Your Account? <br><br><br>
+
+<a href="/profile">No</a>&nbsp;&nbsp;
+<a href="/delete/{{current_user.id}}">YES</a>
+
+{% endblock %}

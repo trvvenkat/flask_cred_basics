@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<h1>Profile</h1>
+{% endblock %}
+
+{% block body %}
+
+<br>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+{% for cat, msg in messages %}
+    <div class="{{cat}}">{{ msg }}</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+<h2>Welcome {{ user.firstname }} {{ user.lastname}}!!!</h2>
+<br>
+
+<h3>Details</h3>
+<div class="subhead">e-Mail:</div> {{ user.email }}<br>
+<div class="subhead">Phone Number:</div> {{ user.phone }}
+
+<br><br><br>
+
+<a href="/edituser/{{user.id}}">Click here to update your details</a>
+
+<br><br><br>
+<a href="/users">Users</a>&nbsp;
+<a href="/deletes/{{user.id}}">Delete My Account</a>&nbsp;
+<a href="/logout">Logout</a>
+
+{% endblock %}
